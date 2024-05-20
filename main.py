@@ -2,6 +2,7 @@ from fastapi import FastAPI, status, Form, HTTPException, Path, Query, Body, Dep
 from typing import Annotated, Union
 from datetime import datetime, time, timedelta
 from uuid import UUID
+from fastapi.middleware.cors import CORSMiddleware
 
 from enums import StoreList
 from models import Product, Diabetes, DiabetesExample, Item, User, UserManager
@@ -16,6 +17,11 @@ from fastapi.security import OAuth2PasswordBearer
 warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*']
+)
 
 data_dict = {1: "Divakar", 2: "John", 3: "Shiv"}
 
