@@ -14,6 +14,7 @@ from sklearn.exceptions import InconsistentVersionWarning
 from pydantic import BaseModel
 from fastapi.security import OAuth2PasswordBearer
 
+
 warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 app = FastAPI()
